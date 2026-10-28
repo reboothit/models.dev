@@ -1,0 +1,24 @@
+# Sources:
+# - Model card: https://huggingface.co/internlm/Atria-Dawn/blob/main/README.md
+# - Endpoints: OpenAI-compatible /v1, Responses API for Codex, Anthropic-compatible root for Claude Code and SystemOne.
+# - Host capabilities: /v1/models lists temperature, top_p and structured outputs; live calls confirmed
+#   temperature, tools and SSE on 2026-10-28. Reasoning levels follow the model card's Kimi config.
+schema = 2
+base_model = "shanghai-ai-lab/atria-dawn"
+
+[capabilities]
+reasoning = { supported = true, effort = ["none", "low", "medium", "high", "xhigh", "max"] }
+structured_output = true
+temperature = true
+top_p = true
+
+[api.chat-completions]
+# Live 2026-10-28: chat completions returns reasoning in `reasoning_content`.
+compatibility = { reasoning_field = "reasoning_content" }
+
+[api.responses]
+sdk = { aisdk = "@ai-sdk/openai", opencodeai = "@opencode/ai/providers/openai-compatible/responses" }
+
+[api.messages]
+base_url = "https://discovery-api.intern-ai.org.cn"
+sdk = { aisdk = "@ai-sdk/anthropic", opencodeai = "@opencode/ai/providers/anthropic-compatible" }

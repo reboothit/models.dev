@@ -1,0 +1,6 @@
+name = "Atria"
+env = ["ATRIA_API_KEY"]
+npm = "@ai-sdk/openai-compatible"
+opencodeai = "@opencode/ai/providers/openai-compatible"
+api = "https://discovery-api.intern-ai.org.cn/v1"
+doc = "https://huggingface.co/internlm/Atria-Dawn/blob/main/README.md"

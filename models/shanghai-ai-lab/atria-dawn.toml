@@ -1,0 +1,39 @@
+# Sources:
+# - Model card: https://huggingface.co/internlm/Atria-Dawn/blob/main/README.md
+# - Public HF repository created 2026-10-23: https://huggingface.co/internlm/Atria-Dawn
+schema = 2
+name = "Atria Dawn"
+description = "Agentic model from Shanghai AI Laboratory built on a 744B-parameter MoE GLM-5.2, targeting research, coding, office delivery and cybersecurity tasks with tool use and multi-step execution."
+open_weights = true
+release_date = "2026-10-23"
+license = "MIT"
+
+[modalities]
+input = ["text"]
+output = ["text"]
+
+[capabilities]
+tools = { supported = true }
+reasoning = { supported = true }
+temperature = false
+top_p = false
+top_k = false
+
+[limit]
+context = 512_000
+output = 65_536
+
+[[links]]
+label = "Model card"
+url = "https://huggingface.co/internlm/Atria-Dawn"
+type = "model_card"
+
+[[links]]
+label = "Paper"
+url = "https://arxiv.org/abs/2609.15818"
+type = "paper"
+
+[[weights]]
+label = "Model weights"
+url = "https://huggingface.co/internlm/Atria-Dawn"
+format = "safetensors"
